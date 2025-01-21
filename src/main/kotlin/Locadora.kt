@@ -36,9 +36,13 @@ class Locadora {
 
     fun listarFilmesDisponiveis() {
         println("Filmes disponíveis: ")
+        var totalDisponivel = 0
+
         filmes.filter { (_, quantidade) -> quantidade > 0 }
             .forEach { (filme, quantidade) ->
                 println("${filme.titulo} - Quantidade: $quantidade")
+                totalDisponivel += quantidade
             }
+        println("- Total de filmes disponíveis: $totalDisponivel")
     }
 }

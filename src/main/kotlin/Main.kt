@@ -20,4 +20,5 @@ fun main() {
     usuarioBruno.devolverFilme(babettesFeast, locadora)
     usuarioEduardo.pegarFilme(laStrada, locadora)
     usuarioEduardo.pegarFilme(parisTexas, locadora)
+    locadora.listarFilmesDisponiveis()
 }
