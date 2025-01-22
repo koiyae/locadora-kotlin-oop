@@ -50,6 +50,6 @@ class Usuario(
     }
 
     private fun obterDataAtual(): String {
-        return java.time.LocalDate.now().toString()
+        return LocalDate.now().toString()
     }
 }
