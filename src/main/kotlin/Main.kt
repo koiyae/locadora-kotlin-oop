@@ -10,12 +10,9 @@ fun main() {
     val babettesFeast = Filme("Babette's Feast", 1987)
     val laStrada = Filme("La Strada", 1954)
 
-    locadora.adicionarFilme(rearWindow, 2)
-    locadora.adicionarFilme(babettesFeast, 5)
-    locadora.adicionarFilme(laStrada, 7)
-    locadora.adicionarFilme(parisTexas, 6)
+    locadora.adicionarFilme(rearWindow, 5)
+    usuarioBruno.pegarFilme(rearWindow, locadora, 3)
 
-    usuarioBruno.pegarFilme(babettesFeast, locadora)
-    usuarioBruno.pegarFilme(parisTexas, locadora)
-    usuarioBruno.exibirHistorico()
+    Thread.sleep(4000)
+    usuarioBruno.devolverFilme(rearWindow, locadora)
 }
