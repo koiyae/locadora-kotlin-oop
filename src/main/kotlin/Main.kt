@@ -17,8 +17,5 @@ fun main() {
 
     usuarioBruno.pegarFilme(babettesFeast, locadora)
     usuarioBruno.pegarFilme(parisTexas, locadora)
-    usuarioBruno.devolverFilme(babettesFeast, locadora)
-    usuarioEduardo.pegarFilme(laStrada, locadora)
-    usuarioEduardo.pegarFilme(parisTexas, locadora)
-    locadora.listarFilmesDisponiveis()
+    usuarioBruno.exibirHistorico()
 }
