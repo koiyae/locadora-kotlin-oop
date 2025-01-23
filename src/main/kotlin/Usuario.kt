@@ -6,11 +6,17 @@ import java.time.temporal.ChronoUnit
 class Usuario(
     val nome: String,
     val id: Int,
+    val plano: PlanoAssinatura
 ) {
     private val filmesAlugados = mutableListOf<Pair<Filme, LocalDate>>()
     private val historicoAluguel = mutableListOf<Pair<Filme, String>>()
 
     fun pegarFilme(filme: Filme, locadora: Locadora, diasAluguel: Long = 7) {
+        if(filmesAlugados.size >= plano.limiteFilmes || diasAluguel >= plano.diasEmprestimo) {
+            println("$nome atingiu o limite do plano ${plano.nome}!")
+            return
+        }
+
         if (locadora.alugarFilme(filme)) {
             val dataDevolucao = LocalDate.now().plusDays(diasAluguel)
             filmesAlugados.add(filme to dataDevolucao)
