@@ -10,6 +10,7 @@ class Usuario(
 ) {
     private val filmesAlugados = mutableListOf<Pair<Filme, LocalDate>>()
     private val historicoAluguel = mutableListOf<Pair<Filme, String>>()
+    private val avaliacoesUsuario = mutableMapOf<Filme, Int>()
 
     fun pegarFilme(filme: Filme, locadora: Locadora, diasAluguel: Long = 7) {
         if(filmesAlugados.size >= plano.limiteFilmes || diasAluguel >= plano.diasEmprestimo) {
@@ -52,6 +53,35 @@ class Usuario(
         println("Histórico de aluguéis de $nome:")
         historicoAluguel.forEach { (filme, data) ->
             println("${filme.titulo} - Alugado em: $data")
+        }
+    }
+
+    fun avaliarFilme(filme: Filme, nota: Int) {
+        if(!historicoAluguel.any {it.first == filme}) {
+            println("Você não pode avaliar um filme que não alugou.")
+            return
+        }
+
+        if(avaliacoesUsuario.containsKey(filme)) {
+            println("Você já avaliou este filme.")
+            return
+        }
+
+        println("Digite uma nota de 1 a 5 para o filme ${filme.titulo}.")
+
+        if(nota in 1..5) {
+            avaliacoesUsuario[filme] = nota
+            filme.adicionarAvaliacao(nota)
+            println("$nome avaliou ${filme.titulo} com nota $nota.")
+        } else {
+            println("Nota inválida. Avaliação cancelada")
+        }
+    }
+
+    fun exibirAvaliacoesUsuario() {
+        println("Avaliações de $nome:")
+        avaliacoesUsuario.forEach { (filme, nota) ->
+            println("${filme.titulo} ($nota/5)")
         }
     }
 

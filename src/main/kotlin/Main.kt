@@ -11,10 +11,10 @@ fun main() {
     val laStrada = Filme("La Strada", 1954)
 
     locadora.adicionarFilme(rearWindow, 20)
-    usuarioBruno.pegarFilme(rearWindow, locadora, 3)
-    usuarioBruno.pegarFilme(rearWindow, locadora, 16)
-    usuarioEduardo.pegarFilme(rearWindow, locadora, 3)
-    usuarioEduardo.pegarFilme(rearWindow, locadora, 3)
-    usuarioEduardo.pegarFilme(rearWindow, locadora, 3)
+    locadora.adicionarFilme(laStrada, 20)
 
+    usuarioBruno.pegarFilme(rearWindow, locadora, 1)
+    usuarioBruno.devolverFilme(rearWindow, locadora)
+    usuarioBruno.avaliarFilme(rearWindow, 5)
+    usuarioBruno.exibirAvaliacoesUsuario()
 }
